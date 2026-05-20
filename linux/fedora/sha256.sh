@@ -10,7 +10,7 @@ if [ ! -f "$1" ]; then
 fi
 
 # Calculate the SHA256 hash of the file
-hash=$(shasum -a 256 "$1" | awk '{print $1}')
+hash=$(sha256sum -- "$1" | awk '{print $1}')
 
 # Compare the calculated hash with the expected hash
 if [ "$hash" = "$2" ]; then
